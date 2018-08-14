@@ -1,4 +1,4 @@
-public class
+public class Fundamentals1
 {
     public static void main ( String args[] )
         {
@@ -7,4 +7,4 @@ public class
         } // end method main
         
         
-} // end class
+} // end class Fundamentals1
