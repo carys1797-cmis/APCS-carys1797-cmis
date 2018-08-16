@@ -1,5 +1,13 @@
 #BlueJ class context
 comment0.target=Fundamentals1
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment1.params=a\ b
+comment1.target=int\ add(int,\ int)
+comment2.params=a\ b
+comment2.target=int\ subtract(int,\ int)
+comment3.params=a\ b
+comment3.target=int\ multiply(int,\ int)
+comment4.params=a\ b
+comment4.target=int\ divide(int,\ int)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6
