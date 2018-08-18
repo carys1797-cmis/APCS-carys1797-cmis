@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Random;
+
 
 public class Fundamentals1
 {   
@@ -69,6 +71,63 @@ public class Fundamentals1
         }
     }
     
+    public static void sqareTable() {
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        for (int item : numbers){
+            Random rand = new Random();
+            int r = rand.nextInt(item*item) + 1;
+            System.out.println(item + "\t" + item*item + "\t" + r);
+        }
+    }
+    
+    public static int triangle(int a) {
+        int sum = 0;
+        for (int i = a; i > 0; i--) {
+            sum = sum + i;
+        }
+        return sum;
+    }
+    
+    public static int pyramid(int a) {
+        int product = 0;
+        for (int i = a; i > 0; i--) {
+            product = product + (i * i);
+        }
+        return product;
+    }
+    
+    public static void checkerboard(int h, int w){
+        Random rand = new Random();
+        int r = rand.nextInt(9) + 1;
+        String firstline = "+";
+        for(int i = w; i > 0; i--){
+            firstline = firstline + "-";
+        }
+        firstline = firstline + "+";
+        String body = "";
+        for(int j = h; j > 0; j--){
+            body = body + "|";
+            if(j % 2 == 1){
+                body = body + "#";
+                for(int i = (w - 2); i > 0; i--){
+                    body = body +" #";
+                }
+                body = body + "|" + "\n";
+            }else {
+                for(int i = (w - 2); i > 0; i--){
+                    body = body + " #";
+                }
+                body = body + " |" + "\n";
+            }
+        }
+        String lastline = "+";
+        for(int i = w; i > 0; i--){
+            lastline = lastline + "-";
+        }
+        lastline = lastline + "+";
+        System.out.println(firstline + "\n" + body + lastline);
+    }
+    
     public static void main ( String args[] )
         {
           System.out.println(a + " + " + b + " = " + add(a, b));
@@ -100,5 +159,10 @@ public class Fundamentals1
           System.out.println("Enter another integer: ");
           int evo = reader.nextInt();
           System.out.println(evenOddZero(evo));
+          
+          sqareTable();
+          System.out.println(triangle(10));
+          System.out.println(pyramid(10));
+          checkerboard(3, 3);
         } // end method main
 } // end class Fundamentals1
