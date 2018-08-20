@@ -130,6 +130,9 @@ public class Fundamentals1
     
     public static void main ( String args[] )
         {
+          //String ya = "yaah";
+          //String yaa = ya.substring(0,1)+"e"+ya.substring(2);
+          
           System.out.println(a + " + " + b + " = " + add(a, b));
           System.out.println(a + " x " + b + " = " + mul(a, b));
           System.out.println(c + " + " + d + " = " + addd(c, d));
@@ -150,9 +153,9 @@ public class Fundamentals1
           System.out.println(y + " - " + z + " = " + subd(y, z));
           System.out.println(y + " / " + z + " = " + divd(y, z));
         
-          System.out.println("Enter an integer: ");
+          System.out.println("Enter an integer: a = ");
           int comp1 = reader.nextInt();
-          System.out.println("Enter another integer: ");
+          System.out.println("Enter another integer: b = ");
           int comp2 = reader.nextInt();
           compare(comp1, comp2);
           
