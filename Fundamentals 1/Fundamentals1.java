@@ -24,22 +24,22 @@ public class Fundamentals1
         return quotient;
     }
     
-    public static double addd(double a, double b) {
+    public static double add(double a, double b) {
         double sum = a + b;
         return sum;
     }
     
-    public static double subd(double a, double b) {
+    public static double sub(double a, double b) {
         double difference = a - b;
         return difference;
     }
     
-    public static double muld(double a, double b) {
+    public static double mul(double a, double b) {
         double product = a * b;
         return product;
     }
     
-    public static double divd(double a, double b) {
+    public static double div(double a, double b) {
         double product = a / b;
         return product;
     }
@@ -124,6 +124,12 @@ public class Fundamentals1
         for(int i = w; i > 0; i--){
             lastline = lastline + "-";
         }
+        int len = body.length();
+        int p = rand.nextInt(len) + 1;
+        System.out.println(p);
+        if (body.charAt(p) == '#'){
+            body = body.substring(0, (p)) + r + body.substring(p+1);
+        }
         lastline = lastline + "+";
         System.out.println(firstline + "\n" + body + lastline);
     }
@@ -135,8 +141,8 @@ public class Fundamentals1
           
           System.out.println(a + " + " + b + " = " + add(a, b));
           System.out.println(a + " x " + b + " = " + mul(a, b));
-          System.out.println(c + " + " + d + " = " + addd(c, d));
-          System.out.println(c + " x " + d + " = " + muld(c, d));
+          System.out.println(c + " + " + d + " = " + add(c, d));
+          System.out.println(c + " x " + d + " = " + mul(c, d));
           
           Scanner reader = new Scanner(System.in);
           System.out.println("Enter an integer: ");
@@ -150,8 +156,8 @@ public class Fundamentals1
           double y = reader.nextDouble();
           System.out.println("Enter another decimal: ");
           double z = reader.nextDouble();
-          System.out.println(y + " - " + z + " = " + subd(y, z));
-          System.out.println(y + " / " + z + " = " + divd(y, z));
+          System.out.println(y + " - " + z + " = " + sub(y, z));
+          System.out.println(y + " / " + z + " = " + div(y, z));
         
           System.out.println("Enter an integer: a = ");
           int comp1 = reader.nextInt();
@@ -166,6 +172,6 @@ public class Fundamentals1
           sqareTable();
           System.out.println(triangle(10));
           System.out.println(pyramid(10));
-          checkerboard(3, 3);
+          checkerboard(3,3);
         } // end method main
 } // end class Fundamentals1

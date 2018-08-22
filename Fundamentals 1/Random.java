@@ -14,6 +14,11 @@ public class Random
             i = word.indexOf(letter, i + 1);}
         System.out.println(i);
         String name = "Carys";
-        String difspell = name.setCharAt(3, "i");
+        //String difspell = name.setCharAt(3, "i");
+        System.out.println(name.charAt(3));
+        
+        String ya = "yaah";
+        String yaa = ya.substring(0,1)+"e"+ya.substring(2);
+        System.out.println(yaa);
     }
 }
