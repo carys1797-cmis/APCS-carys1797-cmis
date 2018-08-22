@@ -125,8 +125,10 @@ public class Fundamentals1
             lastline = lastline + "-";
         }
         int len = body.length();
-        int p = rand.nextInt(len) + 1;
-        System.out.println(p);
+        int p = rand.nextInt(len);
+        while (body.charAt(p) != '#'){
+            p = rand.nextInt(len);
+        }
         if (body.charAt(p) == '#'){
             body = body.substring(0, (p)) + r + body.substring(p+1);
         }
@@ -136,9 +138,6 @@ public class Fundamentals1
     
     public static void main ( String args[] )
         {
-          //String ya = "yaah";
-          //String yaa = ya.substring(0,1)+"e"+ya.substring(2);
-          
           System.out.println(a + " + " + b + " = " + add(a, b));
           System.out.println(a + " x " + b + " = " + mul(a, b));
           System.out.println(c + " + " + d + " = " + add(c, d));
@@ -172,6 +171,7 @@ public class Fundamentals1
           sqareTable();
           System.out.println(triangle(10));
           System.out.println(pyramid(10));
+          
           checkerboard(3,3);
         } // end method main
 } // end class Fundamentals1
