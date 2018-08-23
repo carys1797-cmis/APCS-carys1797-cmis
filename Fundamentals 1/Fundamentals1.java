@@ -4,6 +4,25 @@ import java.util.Random;
 
 public class Fundamentals1
 {   
+    public static void dataTypes() {
+        String abyte = "number of students in a CMIS class, day of the month, change of rank of song within top 100";
+        byte numstu = 10; //number of students in AP Computer Science
+        String ashort = "number of skips someone can do in a minute, hourly change in people in stadium, person's weight in pounds";
+        short numskp = 332; //Guiness World record for skips in a minute
+        String anint = "population of a country, daily change in library books loaned, number of active users on facebook at any given time";
+        int chngbk = -8345000; //change in library books loaned at the Library of Congress
+        String along = "yearly increase/decrease of stars being born, grains of sand on a beach, the number of bytes transferred over the internet per day";
+        long grains = 7500000000000000000L;
+        String afloat = "feet above sealevel, temperature, percentage on a test";
+        float abovesea = -282.0f; //height of Death Valley above sea level (in feet)
+        //String adouble = "";
+        //double;
+        String aboolean = "It is raining, temperature is too high (for medicines), oxygen levels are too low (on an airplane)";
+        boolean rain = false; //it is raining
+        String achar = "first letter of someone's name, grade in a class, type of money (symbol)";
+        char flname = 'c'; //first letter of my name
+        //System.out.println(numstu, numskp, chngbk, grains, abovesea, rain, flname);
+    }
     public static int add(int a, int b) {
         int sum = a + b;
         return sum;
