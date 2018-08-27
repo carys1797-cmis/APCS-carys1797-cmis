@@ -30,6 +30,7 @@ public class Fundamentals1
         char flname = 'c'; //first letter of my name
         System.out.println(achar + flname);
     }
+    
     public static int add(int a, int b) {
         int sum = a + b;
         return sum;
@@ -70,11 +71,6 @@ public class Fundamentals1
         return product;
     }
     
-    private static final int a = 729;
-    private static final int b = 35;
-    private static final double c = 92.43;
-    private static final double d = 3402.1;
-   
     public static void compare(int a, int b){
         if (a > b){
             System.out.println("The value of a is " + a + " and it is greater than b whose value is " + b + ".");
@@ -169,6 +165,11 @@ public class Fundamentals1
         System.out.println(firstline + "\n" + body + lastline);
     }
     
+    private static final int a = 729;
+    private static final int b = 35;
+    private static final double c = 92.43;
+    private static final double d = 3402.1;
+   
     public static void main ( String args[] )
         {
           dataTypes();
@@ -192,15 +193,9 @@ public class Fundamentals1
           System.out.println(y + " - " + z + " = " + sub(y, z));
           System.out.println(y + " / " + z + " = " + div(y, z));
         
-          System.out.println("Enter an integer: a = ");
-          int comp1 = reader.nextInt();
-          System.out.println("Enter another integer: b = ");
-          int comp2 = reader.nextInt();
-          compare(comp1, comp2);
-          
-          System.out.println("Enter another integer: ");
-          int evo = reader.nextInt();
-          System.out.println(evenOddZero(evo));
+         
+          compare(35, 72);
+          System.out.println(evenOddZero(16));
           
           sqareTable();
           System.out.println(triangle(10));
