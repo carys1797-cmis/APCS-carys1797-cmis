@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BinaryConverter
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=bin
+comment2.target=int\ bin2dec(java.lang.String)
+comment3.params=dec
+comment3.target=java.lang.String\ dec2bin(int)
+numComments=4
