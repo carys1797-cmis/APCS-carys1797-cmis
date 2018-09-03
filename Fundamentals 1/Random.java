@@ -20,5 +20,9 @@ public class Random
         String ya = "yaah";
         String yaa = ya.substring(0,1)+"e"+ya.substring(2);
         System.out.println(yaa);
+        System.out.println(ya.length());
+        
+        int b = 0b00110010101011001101001101001010;
+        System.out.println(b);
     }
 }
