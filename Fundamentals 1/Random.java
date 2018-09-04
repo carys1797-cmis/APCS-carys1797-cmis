@@ -22,7 +22,9 @@ public class Random
         System.out.println(yaa);
         System.out.println(ya.length());
         
+        int a = (int) 0b10110010101011001101001101001010;
         int b = 0b00110010101011001101001101001010;
+        System.out.println(a);
         System.out.println(b);
     }
 }
