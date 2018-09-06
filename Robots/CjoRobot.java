@@ -22,21 +22,31 @@ public class CjoRobot extends Robot
      * isClearDown() => true means no block down
      */
     public void behave(){
+        //keep going up(); until isClearRight() == true;
+            //if isClearUp is not longer == true, go down();
+                //if isClearDown == false, go left(), until isClearUp/Down == true;
         if (isClearRight() == true){
             right();
         } else if (isClearRight() == false) {
-            if (isClearUp() == true) {
+            while (isClearUp() == true && isClearRight() == false) {
                 up();
-                if (isClearRight() == false) {
-                    left();
+            }
+            if (isClearRight() == true){
+                right();
+            }else if (isClearUp() == false){
+                while (isClearDown() == true && isClearRight() == false){
+                    down();
                 }
-            }else if (isClearDown() == true){
-                down();
-                if (isClearRight() == false) {
-                    left();
+                if (isClearRight() == true){
+                    right();
+                }else if (isClearDown() == false){
+                    while (isClearLeft() == false){
+                        up();
+                    }
+                    while (isClearUp() == false){
+                        left();
+                    }
                 }
-            } else if (isClearLeft() == true){
-                left();
             }
         }
     }
