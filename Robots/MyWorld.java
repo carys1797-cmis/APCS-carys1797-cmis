@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.lang.reflect.*;
 public class MyWorld extends World
 {
-    Class[] robotClasses = new Class[]{CjoRobot.class};
+    Class[] robotClasses = new Class[]{CarysRobot.class};
+    private double pctBlocks = 0.2;
     public MyWorld() throws NoSuchMethodException
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -14,19 +15,17 @@ public class MyWorld extends World
     public void init(){
         removeObjects(getObjects(null));
         showText("", getWidth()/2,getHeight()/2);
-        initLevel1();
+        initLevel2();
     }
 
     public void initBoard(){
         addBorder();
-        addBlocks(0.2);
         addRobots();
     }
 
     public void finishRound(Robot winner){
-        System.out.println(winner.getClass().getName());
         showText(winner.getClass().getName() + " wins!!", getWidth()/2,getHeight()/2);
-        Greenfoot.delay(250);
+        Greenfoot.delay(100);
         init();
     }
 
@@ -35,6 +34,12 @@ public class MyWorld extends World
         addEndZone();
     }
 
+    public void initLevel2(){
+        initBoard();
+        addEndZone();
+        addBlocks(pctBlocks);
+        pctBlocks += 0.005;
+    }
     
     public void addRobots(){   
         int added = 0;
@@ -49,7 +54,7 @@ public class MyWorld extends World
             
             robots[idx] = null;
             try{
-                addObject((Robot)cls.newInstance(),  1, 3 + (Greenfoot.getRandomNumber(getHeight()) - 2));
+                addObject((Robot)cls.newInstance(),  1, 3 + (Greenfoot.getRandomNumber(getHeight() - 3)));
 
                 added++;
             }catch(Exception e){
@@ -70,7 +75,7 @@ public class MyWorld extends World
     }
 
     public void addBlocks(double density){
-        for(int x = 0; x < getWidth(); x++){
+        for(int x = 5; x < getWidth(); x++){
             for(int y = 0; y < getHeight(); y++){
                 if(Math.random() < density){
                     addObject(new Barrier(), x, y);
