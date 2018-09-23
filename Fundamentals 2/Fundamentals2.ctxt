@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Fundamentals2
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=array\ skip
+comment2.target=void\ printArray(int[],\ boolean)
+comment3.params=array\ skip
+comment3.target=void\ printArray(double[],\ boolean)
+comment4.params=array\ skip
+comment4.target=void\ printArray(java.lang.String[],\ boolean)
+comment5.params=n\ min\ max
+comment5.target=int[]\ randomInts(int,\ int,\ int)
+comment6.params=n\ min\ max
+comment6.target=double[]\ randomDoubles(int,\ double,\ double)
+numComments=7
