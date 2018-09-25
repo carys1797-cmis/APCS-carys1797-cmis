@@ -5,7 +5,7 @@ public class Fundamentals2
         int[] intArray = {34, 1, 859, 66, 10};
         double[] doubleArray = {24.29, 0.12345, 7.0, 693.0, 416.938502};
         String[] stringArray = {"Carys", "Punch", "Zoe", "Jemima", "Lydia"};
-
+        
         System.out.println(intArray[0]);
         System.out.println(doubleArray[2]);
         System.out.println(stringArray[4] + "\n" + "\n");
@@ -28,8 +28,18 @@ public class Fundamentals2
         System.out.println(middleItem(stringArray) + "\n" + "\n");
 
         System.out.println(Arrays.toString(randomInts(5, 10, 1)));
-
+        System.out.println(Arrays.toString(randomDoubles(7, 43.634, 2.19)));
+        
         System.out.println(Arrays.toString(pairs(5)));
+        
+        int[] intArray2 = {1, 2, 3, 4, 5};
+        
+        System.out.println(Arrays.toString(concat(intArray, intArray2)));
+        System.out.println(Arrays.toString(merge(intArray, intArray2)));
+        
+        
+        reverse(intArray2);
+        System.out.println(Arrays.toString(compareArrays(intArray, intArray2)));
     }
 
     public static void printArray(int[] array, boolean skip){
@@ -212,5 +222,88 @@ public class Fundamentals2
             i += 1;
         }
         return pairs;
+    }
+    
+    public static int[] concat(int[] a, int[] b){
+        int[] out = new int[a.length + b.length];
+        for (int i = 0; i < a.length; i++){
+            out[i] = a[i];
+        }
+        for (int i = 0; i < b.length; i++){
+            out[i + a.length] = b[i];
+        }
+        return out;
+    }
+    
+    public static int[] merge(int[] a, int[] b){
+        int[] out = new int[a.length + b.length];
+        for (int i = 0; i < out.length; i++){
+            if (i % 2 == 0){
+                out[i] = a[i / 2];
+            }else {
+                out[i] = b[i/2];
+            }
+        }
+        return out;
+    }
+    
+    public static void reverse(int[] array){
+        int var = 0;
+        for (int i = 0; i < (array.length / 2); i++){
+            var = array[i];
+            array[i] = array[(array.length - 1) - i];
+            array[(array.length - 1) - i] = var;
+        }
+        
+        System.out.println(Arrays.toString(array));
+    }
+    
+    public static int[] subArray(int[] array, int start, int stop){
+        int[] subArray = new int[stop - start];
+        for (int i = start; i < stop; i++){
+            subArray[i - start] = array[i];
+        }
+        return subArray;
+    }
+    
+    public static int[] compareArrays(int[] a, int[] b){
+        int atotal = 0;
+        int btotal = 0;
+        for (int i = 0; i < a.length; i++){
+            if (a[i] > b[i]){
+                atotal += 1;
+            }else if (b[i] > a[i]){
+                btotal += 1;
+            }
+        }
+        int[] out = new int[a.length];
+        if (atotal > btotal){
+            out = a;
+        }else if (btotal > atotal){
+            out = b;
+        }
+        return out;
+    }
+    
+    public static int[] minimize(int[] array, int threshold){
+        int[] out = new int[array.length];
+        for (int i = 0; i < out.length; i++){
+            if (array[i] > threshold){
+                out[i] = threshold;
+            }else {
+                out[i] = array[i];
+            }
+        }
+        return out;
+    }
+    
+    public static void maximize(int[] array, int threshold){
+        for (int i = 0; i < array.length; i++){
+            if (i < threshold){
+                array[i] = threshold;
+            }else {
+                continue;
+            }
+        }
     }
 }
