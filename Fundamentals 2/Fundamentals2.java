@@ -39,7 +39,12 @@ public class Fundamentals2
         
         
         reverse(intArray2);
-        System.out.println(Arrays.toString(compareArrays(intArray, intArray2)));
+        System.out.println(Arrays.toString(compareArrays(intArray, intArray2)) + "\n");
+        
+        double[] a = {2.5, 3.1, 4.6, 1.2};
+        double[] b = {3.7, 2.1, 5.3, 2.1, 4.5};
+        
+        printArray(maxMerge(a, b), false);
     }
 
     public static void printArray(int[] array, boolean skip){
@@ -306,4 +311,42 @@ public class Fundamentals2
             }
         }
     }
+    
+    public static double[] maxMerge(double[] a, double[] b){
+        int longer = 0;
+        int shorter = 0;
+        double[] aa;
+        double[] bb;
+        double[] nbb;
+        if (a.length != b.length){
+            if (a.length > b.length){
+                longer = a.length;
+                shorter = b.length;
+                aa = a;
+                bb = b;
+            }else {
+                longer = b.length;
+                shorter = a.length;
+                aa = b;
+                bb = a;
+            }
+            nbb = new double[longer];
+            for (int i = 0; i < shorter; i++){
+                nbb[i] = bb[i];
+            }
+            for (int i = shorter; i < longer; i++){
+                nbb[i] = 0.0;
+            }
+        }
+        double[] out = new double[longer];
+        for (int i = 0; i < longer; i++){
+            if (aa[i] > nbb[i]){
+                out[i] = aa[i];
+            }else {
+                out[i] = nbb[i];
+            }
+        }
+        return out;
+    }
+    
 }
