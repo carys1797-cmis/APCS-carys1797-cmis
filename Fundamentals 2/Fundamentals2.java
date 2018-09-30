@@ -3,47 +3,26 @@ public class Fundamentals2
 {
     public static void main(String args[]){
         int[] intArray = {34, 1, 859, 66, 10};
-        double[] doubleArray = {24.29, 0.12345, 7.0, 693.0, 416.938502};
-        String[] stringArray = {"Carys", "Punch", "Zoe", "Jemima", "Lydia"};
-        
+        double[] doubleArray = {24.29, 0.12345, 7.0, 693.0, 416.938502, 0.0};
+        String[] stringArray = {"Carys", "Punch", "Zoe", "Jemima", "Lydia", "Melissa"};
+
         System.out.println(intArray[0]);
         System.out.println(doubleArray[2]);
         System.out.println(stringArray[4] + "\n" + "\n");
 
         boolean[] boolArray = {true, false, false, true, false};
 
-        printArray(intArray, false);
-        printArray(doubleArray, true);
-        printArray(boolArray, true);
-        printArray(stringArray, false);
-
-        System.out.println("\n" + "\n" + lastItem(intArray));
-        System.out.println(lastItem(doubleArray));
-        System.out.println(lastItem(boolArray));
-        System.out.println(lastItem(stringArray) + "\n" + "\n");
-
-        System.out.println(middleItem(intArray));
-        System.out.println(middleItem(doubleArray));
-        System.out.println(middleItem(boolArray));
-        System.out.println(middleItem(stringArray) + "\n" + "\n");
-
         System.out.println(Arrays.toString(randomInts(5, 10, 1)));
-        System.out.println(Arrays.toString(randomDoubles(7, 43.634, 2.19)));
-        
-        System.out.println(Arrays.toString(pairs(5)));
-        
+        System.out.println(Arrays.toString(randomDoubles(7, 43.634, 2.19)) + "\n" + "\n");
+
         int[] intArray2 = {1, 2, 3, 4, 5};
-        
-        System.out.println(Arrays.toString(concat(intArray, intArray2)));
-        System.out.println(Arrays.toString(merge(intArray, intArray2)));
-        
-        
-        reverse(intArray2);
+
+        System.out.println(Arrays.toString(subArray(intArray, 1, 3)));
         System.out.println(Arrays.toString(compareArrays(intArray, intArray2)) + "\n");
-        
-        double[] a = {2.5, 3.1, 4.6, 1.2};
+
+        double[] a = {2.5, 3.1, 4.6, 1.2, 7.2, 32.0};
         double[] b = {3.7, 2.1, 5.3, 2.1, 4.5};
-        
+
         printArray(maxMerge(a, b), false);
     }
 
@@ -61,6 +40,7 @@ public class Fundamentals2
                 }
             }
         }
+        System.out.print("\n");
     }
 
     public static void printArray(double[] array, boolean skip){
@@ -77,6 +57,7 @@ public class Fundamentals2
                 }
             }
         }
+        System.out.print("\n");
     }
 
     public static void printArray(boolean[] array, boolean skip){
@@ -93,6 +74,7 @@ public class Fundamentals2
                 }
             }
         }
+        System.out.print("\n");
     }
 
     public static void printArray(String[] array, boolean skip){
@@ -109,6 +91,7 @@ public class Fundamentals2
                 }
             }
         }
+        System.out.print("\n");
     }
 
     public static int lastItem(int[] array){
@@ -228,7 +211,7 @@ public class Fundamentals2
         }
         return pairs;
     }
-    
+
     public static int[] concat(int[] a, int[] b){
         int[] out = new int[a.length + b.length];
         for (int i = 0; i < a.length; i++){
@@ -239,19 +222,35 @@ public class Fundamentals2
         }
         return out;
     }
-    
+
     public static int[] merge(int[] a, int[] b){
+        int s = 0;
+        int l = 0;
+        int[] ab;
         int[] out = new int[a.length + b.length];
-        for (int i = 0; i < out.length; i++){
+        if (a.length <= b.length){
+            s = a.length;
+            l = b.length;
+            ab = b;
+        }else {
+            s = b.length;
+            l = a.length;
+            ab = a;
+        }
+        for (int i = 0; i < s * 2; i++){
             if (i % 2 == 0){
                 out[i] = a[i / 2];
             }else {
                 out[i] = b[i/2];
             }
         }
+        for (int i = s * 2; i < out.length; i++){
+            int k = i - s;
+            out[i] = ab[k];
+        }
         return out;
     }
-    
+
     public static void reverse(int[] array){
         int var = 0;
         for (int i = 0; i < (array.length / 2); i++){
@@ -259,10 +258,10 @@ public class Fundamentals2
             array[i] = array[(array.length - 1) - i];
             array[(array.length - 1) - i] = var;
         }
-        
+
         System.out.println(Arrays.toString(array));
     }
-    
+
     public static int[] subArray(int[] array, int start, int stop){
         int[] subArray = new int[stop - start];
         for (int i = start; i < stop; i++){
@@ -270,7 +269,7 @@ public class Fundamentals2
         }
         return subArray;
     }
-    
+
     public static int[] compareArrays(int[] a, int[] b){
         int atotal = 0;
         int btotal = 0;
@@ -289,7 +288,7 @@ public class Fundamentals2
         }
         return out;
     }
-    
+
     public static int[] minimize(int[] array, int threshold){
         int[] out = new int[array.length];
         for (int i = 0; i < out.length; i++){
@@ -301,17 +300,16 @@ public class Fundamentals2
         }
         return out;
     }
-    
+
     public static void maximize(int[] array, int threshold){
         for (int i = 0; i < array.length; i++){
-            if (i < threshold){
+            if (array[i] < threshold){
                 array[i] = threshold;
-            }else {
-                continue;
             }
         }
+        System.out.println(Arrays.toString(array));
     }
-    
+
     public static double[] maxMerge(double[] a, double[] b){
         int longer = 0;
         int shorter = 0;
@@ -330,13 +328,16 @@ public class Fundamentals2
                 aa = b;
                 bb = a;
             }
-            nbb = new double[longer];
+            nbb = new double[longer] ;
             for (int i = 0; i < shorter; i++){
                 nbb[i] = bb[i];
             }
             for (int i = shorter; i < longer; i++){
                 nbb[i] = 0.0;
             }
+        }else {
+            aa = a;
+            nbb = b;
         }
         double[] out = new double[longer];
         for (int i = 0; i < longer; i++){
@@ -348,5 +349,6 @@ public class Fundamentals2
         }
         return out;
     }
+
     
 }
