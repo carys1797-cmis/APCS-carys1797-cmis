@@ -15,7 +15,7 @@ public class Fundamentals2
         System.out.println(Arrays.toString(randomInts(5, 10, 1)));
         System.out.println(Arrays.toString(randomDoubles(7, 43.634, 2.19)) + "\n" + "\n");
 
-        int[] intArray2 = {1, 2, 3, 4, 5};
+        int[] intArray2 = {34, 0, 859, 66, 8, 1};
 
         System.out.println(Arrays.toString(subArray(intArray, 1, 3)));
         System.out.println(Arrays.toString(compareArrays(intArray, intArray2)) + "\n");
@@ -273,18 +273,38 @@ public class Fundamentals2
     public static int[] compareArrays(int[] a, int[] b){
         int atotal = 0;
         int btotal = 0;
-        for (int i = 0; i < a.length; i++){
-            if (a[i] > b[i]){
+        int s = 0;
+        int l = 0;
+        int[] aa;
+        int[] bb;
+        if (a.length <= b.length){
+            l = b.length;
+            s = a.length;
+            aa = a;
+            bb = b;
+        }else {
+            l = a.length;
+            s = b.length;
+            aa = b;
+            bb = a;
+        }
+        for (int i = 0; i < s; i++){
+            if (aa[i] > bb[i]){
                 atotal += 1;
-            }else if (b[i] > a[i]){
+            }else if (bb[i] > aa[i]){
                 btotal += 1;
+            }else {
+                continue;
             }
+        }
+        for (int i = s; i < l; i++){
+            btotal += 1;
         }
         int[] out = new int[a.length];
         if (atotal > btotal){
-            out = a;
+            out = aa;
         }else if (btotal > atotal){
-            out = b;
+            out = bb;
         }
         return out;
     }
