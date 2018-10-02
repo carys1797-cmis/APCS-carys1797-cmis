@@ -3,7 +3,7 @@ import java.lang.reflect.*;
 public class MyWorld extends World
 {
     Class[] robotClasses = new Class[]{CarysRobot.class};
-    private double pctBlocks = 0.2;
+    private double pctBlocks = 0.3;
     public MyWorld() throws NoSuchMethodException
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
