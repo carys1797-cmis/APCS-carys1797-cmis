@@ -22,6 +22,6 @@ public class CarysRobot extends Robot
      * isClearDown() => true means no block down
      */
     public void behave(){
-        
+        right();
     }
 }
