@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Random;
+import java.util.Arrays;
 public class CarysRobot extends Robot
 {
     public CarysRobot(){
@@ -7,7 +8,8 @@ public class CarysRobot extends Robot
     }
 
     public void init(){
-
+        int[] start = {0, 4, 4, 4, 4, 4, 4, 4, 4, 4};
+        setData(start);
     }
 
     /**
@@ -22,41 +24,44 @@ public class CarysRobot extends Robot
      * isClearDown() => true means no block down
      */
     public void behave(){
-        int i = 0;
-        if (isClearRight() == true){
-            right();
-            while (getData(i) != 0){
-                i++;
-                if (i == 10){
-                    i = 0;
-                }
+        if (getData(0) == 0){
+            if (isClearUp() == true){
+                up();
             }
-            setData(i, 1); //1 means right
-        }else if (isClearUp() == true){
-            for (int j = 0; j < 9; j++){
-                if (getData(j) == 2 && getData(j+1) == 3){
-                    down();
-                }
+            if (isClearLeft() == true){
+                left();
             }
-            up();
-            while (getData(i) != 0){
-                i++;
-                if (i == 10){
-                    i = 0;
-                }
+            if (isClearUp() == false && isClearLeft() == false){
+                setData(0, 1); //data[0] = 1 means on left wall
             }
-            setData(i, 2); //2 means up
-        }else if (isClearDown() == true){
-            down();
-            while (getData(i) != 0){
-                i++;
-                if (i == 10){
-                    i = 0;
+        }else if (getData(0) == 1){
+            if (isClearRight() == true){
+                right();
+            }else if (getData(9) == 4){
+                down();
+                for (int i = 1; i < 10; i++){
+                    if (getData(i) == 4){
+                        setData(i, 3);
+                        break;
+                    }
                 }
+            }else if (getData(9) == 3){
+                setData(0, 2);
             }
-            setData(i, 3); //3 means up
-        }else {
-            left();
+        }else if (getData(0) == 2){
+            if (isClearLeft() == true){
+                left();
+            }else if (getData(9) == 3){
+                down();
+                for (int i = 1; i < 10; i++){
+                    if (getData(i) == 3){
+                        setData(i, 4);
+                        break;
+                    }
+                }
+            }else if (getData(9) == 4){
+                setData(0, 1);
+            }
         }
     }
 }
