@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Arrays2d
+comment1.params=
+comment1.target=int[][]\ numbers()
+comment2.params=array
+comment2.target=void\ print(int[][])
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
