@@ -44,6 +44,7 @@ public class Fundamentals3
                 {3.1, 3.2, 3.3, 3.4, 3.5},
                 {4.1, 4.2, 4.3, 4.4, 4.5},
                 {5.1, 5.2, 5.3, 5.4, 5.5}};
+                
         String[][] strlit = {{"#", " ", "#", " ", "#", " ", "#", " "},
                 {" ", "#", " ", "#", " ", "#", " ", "#"},
                 {"#", " ", "#", " ", "#", " ", "#", " "},
@@ -55,7 +56,11 @@ public class Fundamentals3
 
         sprint(locate(strlit));
         iprint(replace(intlit, 10, 0));
-        dprint(shift(doblit, 4));
+        dprint(shift(doblit, 3));
+        dprint(tilt(doblit));
+        
+        greatsum(intlit);
+        
     }
 
     public static int find(int[][] array, int row, int column){
@@ -141,19 +146,66 @@ public class Fundamentals3
         }
         return array;
     }
-    
+
     public static double[][] shift(double[][] arr, int row){
         int yl = arr.length;
         int xl = arr[0].length;
         double[][] out = new double[yl][xl];
-        int r;
-        for (int y = yl - 1; y < yl - row; y++){
-            out[arr.length - row] = arr[yl];
+        double r;
+        for (int y = 0; y < row; y++){
+            out[y] = arr[y+1];
         }
-        for (int x = 0; x < out[0].length; x++){
-            r = (int) Math.random() * 10;
-            out[out.length-1][x] = r;
+        for (int x = 0; x < xl; x++){
+            r = Math.random() * 10;
+            out[row][x] = r;
+        }
+        if (row < yl){
+            for (int y = row + 1; y < yl; y++){
+                out[y] = arr[y];
+            }
         }
         return out;
+    }
+    
+    public static double[][] tilt(double[][] arr){
+        double[][] out = new double[arr[0].length][arr.length];
+        for (int y = 0; y < arr[0].length; y++){
+            for (int x = 0; x < arr.length; x++){
+                out[y][x] = arr[x][y];
+            }
+        }
+        return out;
+    }
+    
+    public static void greatsum(int array[][]){
+        int h = array.length;
+        int w = array[0].length;
+        int greatest = 0;
+        int sum;
+        String rc = "";
+        int n = 0;
+        for (int r = 0; r < h; r++){
+            sum = 0;
+            for (int c = 0; c < w; c++){
+                sum += array[r][c];
+            }
+            if (sum > greatest){
+                greatest = sum;
+                rc = "on row ";
+                n = r;
+            }
+        }
+        for (int c = 0; c < w; c++){
+            sum = 0;
+            for (int r = 0; r < h; r++){
+                sum += array[r][c];
+            }
+            if (sum > greatest){
+                greatest = sum;
+                rc = "in column ";
+                n = c;
+            }
+        }
+        System.out.println("The greatest sum is " + rc + n + ": " + greatest);
     }
 }
