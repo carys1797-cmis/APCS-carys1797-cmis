@@ -44,7 +44,7 @@ public class Fundamentals3
                 {3.1, 3.2, 3.3, 3.4, 3.5},
                 {4.1, 4.2, 4.3, 4.4, 4.5},
                 {5.1, 5.2, 5.3, 5.4, 5.5}};
-                
+
         String[][] strlit = {{"#", " ", "#", " ", "#", " ", "#", " "},
                 {" ", "#", " ", "#", " ", "#", " ", "#"},
                 {"#", " ", "#", " ", "#", " ", "#", " "},
@@ -54,13 +54,22 @@ public class Fundamentals3
                 {"#", " ", "#", " ", "#", " ", "#", " "},
                 {" ", "#", " ", "#", " ", "#", " ", "#"}};
 
+        int[][] array = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+                {11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+                {21, 22, 23, 24, 25, 26, 27, 28, 29, 30},
+                {31, 32, 33, 34, 35, 36, 37, 38, 39, 40},
+                {41, 42, 43, 44, 45, 46, 47, 48, 49, 50},
+                {51, 52, 53, 54, 55, 56, 57, 58, 59, 60},
+                {61, 62, 63, 64, 65, 66, 67, 68, 69, 70}};
+
         sprint(locate(strlit));
         iprint(replace(intlit, 10, 0));
         dprint(shift(doblit, 3));
         dprint(tilt(doblit));
-        
+
         greatsum(intlit);
-        
+        System.out.println(subgreatsum(array, 9, 6));
+
     }
 
     public static int find(int[][] array, int row, int column){
@@ -166,7 +175,7 @@ public class Fundamentals3
         }
         return out;
     }
-    
+
     public static double[][] tilt(double[][] arr){
         double[][] out = new double[arr[0].length][arr.length];
         for (int y = 0; y < arr[0].length; y++){
@@ -176,7 +185,7 @@ public class Fundamentals3
         }
         return out;
     }
-    
+
     public static void greatsum(int array[][]){
         int h = array.length;
         int w = array[0].length;
@@ -207,5 +216,56 @@ public class Fundamentals3
             }
         }
         System.out.println("The greatest sum is " + rc + n + ": " + greatest);
+    }
+
+    public static int subgreatsum(int[][] array, int sw, int sh){
+        int h = array.length;
+        int w = array[0].length;
+        int sum;
+        int greatest = 0;
+        for (int y = 0; y < h - (sh - 1); y++){
+            for (int x = 0; x < w - (sw - 1); x++){
+                sum = 0;
+                for (int sy = y; sy < y + sh; sy++){
+                    for (int sx = x; sx < x + sw; sx++){
+                        sum += array[sy][sx];
+                    }
+                }
+                if (sum > greatest){
+                    greatest = sum;
+                }
+            }
+        }
+        return greatest;
+    }
+
+    public static String ringgreatsum(int[][] array){
+        int h = array.length;
+        int w = array[0].length;
+        int r;
+        if (w <= h){
+            if (w % 2 == 1){
+                r = (w / 2) + 1;
+            }else{
+                r = w / 2;
+            }
+        }else {
+            if (h % 2 == 1){
+                r = (h / 2) + 1;
+            }else{
+                r = h / 2;
+            }
+        }
+        int sum;
+        int greatest = 0;
+        for (int ry = 0; ry < mh; ry++){
+            for (int rx = 0; rx < mw; rx++){
+                for (int y = 0; y < h; y++){
+                    for (int x = 0; x < w; x++){
+                        
+                    }
+                }
+            }
+        }
     }
 }
