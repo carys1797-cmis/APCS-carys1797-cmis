@@ -8,7 +8,7 @@ public class CarysRobot extends Robot
     }
 
     public void init(){
-        int[] start = {0, 4, 4, 4, 4, 4, 4, 4, 4, 4};
+        int[] start = {0, 0, 0, 4, 4, 4, 4, 4, 4, 4};
         setData(start);
     }
 
@@ -37,9 +37,20 @@ public class CarysRobot extends Robot
         }else if (getData(0) == 1){
             if (isClearRight() == true){
                 right();
+                setData(2, getData(2) + 1);
+                if (getData(1) == 0 && isClearRight() == false){
+                    setData(1, getData(2));
+                }
+                if (getData(2) > getData(1)){
+                    if(isClearUp() == true){
+                        up();
+                    }
+                }else if (getData(2) < getData(1)){
+                    setData(0, 3);
+                }
             }else if (getData(9) == 4){
                 down();
-                for (int i = 1; i < 10; i++){
+                for (int i = 3; i < 10; i++){
                     if (getData(i) == 4){
                         setData(i, 3);
                         break;
@@ -53,7 +64,7 @@ public class CarysRobot extends Robot
                 left();
             }else if (getData(9) == 3){
                 down();
-                for (int i = 1; i < 10; i++){
+                for (int i = 3; i < 10; i++){
                     if (getData(i) == 3){
                         setData(i, 4);
                         break;
@@ -62,6 +73,8 @@ public class CarysRobot extends Robot
             }else if (getData(9) == 4){
                 setData(0, 1);
             }
+        }else if (getData(0) == 3){
+            
         }
     }
 }
