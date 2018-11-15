@@ -25,17 +25,25 @@ public class CarysRobot extends Robot
      */
     public void behave(){
         if (getData(0) == 0){
-            if (isClearUp() == true){
+            if (isClearUp() == true && getData(1) == 0){
+                if(isClearRight() == false && isClearLeft() == false){
+                    down();
+                    setData(1, 1);
+                }
                 up();
             }
             if (isClearLeft() == true){
                 left();
             }
             if (isClearUp() == false && isClearLeft() == false){
+                setData(1, 0);
                 setData(0, 1); //data[0] = 1 means on left wall
             }
         }else if (getData(0) == 1){
             if (isClearRight() == true){
+                if (isClearUp() == false && isClearDown() == false){
+                    setData(9, 3);
+                }
                 right();
                 setData(2, getData(2) + 1);
                 if (getData(1) == 0 && isClearRight() == false){
@@ -43,11 +51,7 @@ public class CarysRobot extends Robot
                     System.out.println("index 1: " + getData(1));
                 }
                 if (isClearRight() == false){
-                    if (getData(2) > getData(1)){
-                        if(isClearUp() == true){
-                            up();
-                        }
-                    }else if (getData(2) < getData(1)){
+                    if (getData(2) != getData(1)){
                         int[] n = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                         setData(n);
                     }
@@ -66,14 +70,13 @@ public class CarysRobot extends Robot
             }
         }else if (getData(0) == 2){
             if (isClearLeft() == true){
+                if (isClearUp() == false && isClearDown() == false){
+                    setData(9, 4);
+                }
                 left();
                 setData(2, getData(2) + 1);
                 if (isClearLeft() == false){
-                    if (getData(2) > getData(1)){
-                        if(isClearUp() == true){
-                            up();
-                        }
-                    }else if (getData(2) < getData(1)){
+                    if (getData(2) != getData(1)){
                         int[] n = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                         setData(n);
                     }
@@ -91,6 +94,7 @@ public class CarysRobot extends Robot
                 setData(0, 1);
             }
         }else if (getData(0) == 3){
+            int[] n = {0, 0, 0, 0, 0, 0, 0, 0, 0, 4};
             if (getData(1) == 0){
                 if(isClearRight() == false){
                     setData(1, 1);
@@ -99,20 +103,39 @@ public class CarysRobot extends Robot
                 }
             }else if (getData(1) == 1){
                 if(isClearRight() == false){
+                    if (isClearLeft() == false){
+                        up();
+                        setData(n);
+                    }
                     up();
-                }else if (isClearRight() == true && getData(2) == 6){
+                    setData(2, getData(2) + 1);
+                    System.out.println(getData(2));
+                }else if (isClearRight() == true && getData(2) == 5){
                     System.out.println("door");
                     right();
+                    if (isClearUp() == true){
+                        setData(n);
+                    }
                 }else{
                     setData(2, 0);
                     setData(1, 2);
                     right();
                 }
             }else if (getData(1) == 2){
-                if(isClearDown() == false){
+                if (isClearDown() == false){
+                    if (isClearUp() == false){
+                        right();
+                        setData(n);
+                    }
                     right();
-                }else if (isClearDown() == true && getData(2) == 6){
+                    setData(2, getData(2) + 1);
+                    System.out.println(getData(2));
+                }else if (isClearDown() == true && getData(2) == 5){
                     System.out.println("door");
+                    down();
+                    if (isClearRight() == true){
+                        setData(n);
+                    }
                 }else {
                     setData(2, 0);
                     setData(1, 3);
@@ -120,9 +143,19 @@ public class CarysRobot extends Robot
                 }
             }else if (getData(1) == 3){
                 if(isClearLeft() == false){
+                    if (isClearRight() == false){
+                        down();
+                        setData(n);
+                    }
                     down();
-                }else if (isClearLeft() == true && getData(2) == 6){
+                    setData(2, getData(2) + 1);
+                    System.out.println(getData(2));
+                }else if (isClearLeft() == true && getData(2) == 5){
                     System.out.println("door");
+                    left();
+                    if (isClearUp() == true){
+                        setData(n);
+                    }
                 }else {
                     setData(2, 0);
                     setData(1, 4);
@@ -130,17 +163,25 @@ public class CarysRobot extends Robot
                 }
             }else if (getData(1) == 4){
                 if(isClearUp() == false){
+                    if (isClearDown() == false){
+                        left();
+                        setData(n);
+                    }
                     left();
-                }else if (isClearUp() == true && getData(2) == 6){
+                    setData(2, getData(2) + 1);
+                    System.out.println(getData(2));
+                }else if (isClearUp() == true && getData(2) == 5){
                     System.out.println("door");
+                    up();
+                    if (isClearRight() == true){
+                        setData(n);
+                    }
                 }else {
                     setData(2, 0);
                     setData(1, 1);
                     up();
                 }
             }
-            setData(2, getData(2) + 1);
-            System.out.println(getData(2));
         }
     }
 }
