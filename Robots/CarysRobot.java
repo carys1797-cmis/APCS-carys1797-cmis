@@ -41,7 +41,10 @@ public class CarysRobot extends Robot
             }
         }else if (getData(0) == 1){
             if (isClearRight() == true){
-                if (isClearUp() == false && isClearDown() == false){
+                if (isClearUp() == false && isClearDown() == false && getData(3) == 1){
+                    left();
+                    setData(2, 1);
+                    setData(0, 2);
                     setData(9, 3);
                 }
                 right();
@@ -52,6 +55,7 @@ public class CarysRobot extends Robot
                 }
                 if (isClearRight() == false){
                     if (getData(2) != getData(1)){
+                        System.out.println(getData(2));
                         int[] n = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                         setData(n);
                     }
@@ -70,13 +74,18 @@ public class CarysRobot extends Robot
             }
         }else if (getData(0) == 2){
             if (isClearLeft() == true){
-                if (isClearUp() == false && isClearDown() == false){
+                if (isClearUp() == false && isClearDown() == false && getData(3) == 1){
+                    right();
+                    setData(2, 1);
+                    setData(0, 1);
                     setData(9, 4);
+                    System.out.println(Arrays.toString(getData()));
                 }
                 left();
                 setData(2, getData(2) + 1);
                 if (isClearLeft() == false){
                     if (getData(2) != getData(1)){
+                        System.out.println(getData(2));
                         int[] n = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                         setData(n);
                     }
@@ -94,7 +103,7 @@ public class CarysRobot extends Robot
                 setData(0, 1);
             }
         }else if (getData(0) == 3){
-            int[] n = {0, 0, 0, 0, 0, 0, 0, 0, 0, 4};
+            int[] n = {0, 0, 0, 1, 0, 0, 0, 0, 0, 4};
             if (getData(1) == 0){
                 if(isClearRight() == false){
                     setData(1, 1);
@@ -177,6 +186,7 @@ public class CarysRobot extends Robot
                         setData(n);
                     }
                 }else {
+                    System.out.println(Arrays.toString(getData()));
                     setData(2, 0);
                     setData(1, 1);
                     up();
@@ -185,3 +195,7 @@ public class CarysRobot extends Robot
         }
     }
 }
+
+
+//if robot hits from left (moving right) 1 block above door: getData(2) == 5 when hits the top so getData(0) == 0 & robot continues to top left of screen
+//if robot goes straight into door
