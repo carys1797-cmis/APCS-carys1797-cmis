@@ -41,11 +41,16 @@ public class CarysRobot extends Robot
             }
         }else if (getData(0) == 1){
             if (isClearRight() == true){
-                if (isClearUp() == false && isClearDown() == false && getData(3) == 1){
-                    left();
-                    setData(2, -1);
-                    setData(0, 2);
-                    setData(9, 3);
+                if (isClearUp() == false && isClearDown() == false){
+                    if (getData(3) == 1){
+                        left();
+                        setData(2, -1);
+                        setData(0, 2);
+                        setData(9, 3);
+                    }else {
+                        int[] n = {0, 0, -1, 1, 0, 0, 0, 0, 0, 4};
+                        setData(n);
+                    }
                 }
                 right();
                 setData(2, getData(2) + 1);
@@ -73,11 +78,16 @@ public class CarysRobot extends Robot
             }
         }else if (getData(0) == 2){
             if (isClearLeft() == true){
-                if (isClearUp() == false && isClearDown() == false && getData(3) == 1){
-                    right();
-                    setData(2, -1);
-                    setData(0, 1);
-                    setData(9, 4);
+                if (isClearUp() == false && isClearDown() == false){
+                    if (getData(3) == 1){
+                        right();
+                        setData(2, -1);
+                        setData(0, 1);
+                        setData(9, 4);
+                    }else {
+                        int[] n = {0, 0, -1, 1, 0, 0, 0, 0, 0, 4};
+                        setData(n);
+                    }
                 }
                 left();
                 setData(2, getData(2) + 1);
@@ -195,5 +205,4 @@ public class CarysRobot extends Robot
         }
     }
 }
-
 
