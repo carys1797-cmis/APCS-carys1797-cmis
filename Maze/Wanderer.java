@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Arrays;
 public class Wanderer extends Robot
 {
     public Wanderer(int d){
@@ -28,38 +28,82 @@ public class Wanderer extends Robot
      * public final void setData(int[] newData) => replaces values in data array with values in newData
      */
     public void behave(){
-        if (isClearRight() == true){
-            right();
-            for(int i = 0; i < 10; i++){
-                if (getData(i) == 0){
-                    setData(i, 1);
-                    break;
+        // (0) == x coordinate at intersection
+        // (1) == y coordinate at intersection
+        // (2) == which way robot was coming from when got to intersection
+        // (3) == where robot is coming from
+        // (4) == where robot is going
+        
+        if (getData(0) == getX() && getData(1) == getY()){
+            System.out.println("Fix this!");
+        }
+        if (getData(4) == 0){
+            if (isClearRight() == true && getData(3) != 1){
+                if (isClearDown() == true || isClearUp() == true){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
                 }
+                right();
+                setData(4, 1);
+            }else if (isClearDown() == true && getData(3) != 2){
+                if (isClearRight() == true || isClearLeft() == true){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                down();
+                setData(4, 2);
+            }else if (isClearUp() == true && getData(3) != 3){
+                if (isClearRight() == true || isClearLeft() == true){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                up();
+                setData(4, 3);
+            }else if (isClearLeft() == true && getData(3) != 4){
+                if (isClearDown() == true || isClearUp() == true){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                left();
+                setData(4, 4);
+            }else {
+                setData(4, getData(3));
             }
-        }else if (isClearDown() == true){
-            down();
-            for(int i = 0; i < 10; i++){
-                if (getData(i) == 0){
-                    setData(i, 2);
-                    break;
-                }
+        }else if (getData(4) == 1){
+            if (isClearRight() == true){
+                right();
+            }else {
+                setData(3, 4);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
             }
-
-        }else if (isClearUp() == true){
-            up();
-            for(int i = 0; i < 10; i++){
-                if (getData(i) == 0){
-                    setData(i, 3);
-                    break;
-                }
+        }else if (getData(4) == 2){
+            if (isClearDown() == true){
+                down();
+            }else {
+                setData(3, 3);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
             }
-        }else if (isClearLeft() == true){
-            left();
-            for(int i = 0; i < 10; i++){
-                if (getData(i) == 0){
-                    setData(i, 4);
-                    break;
-                }
+        }else if (getData(4) == 3){
+            if (isClearUp() == true){
+                up();
+            }else {
+                setData(3, 2);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
+            }
+        }else if (getData(4) == 4){
+            if (isClearLeft() == true){
+                left();
+            }else {
+                setData(3, 1);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
             }
         }
 
