@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=FundamentalsIIIQuiz
+comment1.params=array
+comment1.target=void\ iprint(int[][])
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=array\ threshold
+comment3.target=boolean\ allGreater(int[][],\ int)
+comment3.text=\n\ allGreater\ should\ return\ true\ if\ every\ value\ in\ array\ is\ strictly\ greater\ than\ threshold\n
+comment4.params=array\ positive
+comment4.target=int[][]\ invertSign(int[][],\ boolean)
+comment4.text=\n\ invertSign\ should\ return\ a\ new\ array\ with\ the\ signs\ inverted\ to\ all\ positive\ if\ positive\ is\ true\n\ and\ all\ negative\ if\ positive\ is\ false.\n
+comment5.params=array\ c1\ c2
+comment5.target=int[][]\ swapColumns(int[][],\ int,\ int)
+comment5.text=\n\ swapColumns\ should\ return\ a\ new\ array\ with\ the\ values\ in\ columns\ c1\ and\ c2\ from\ array\ swapped\n
+numComments=6
