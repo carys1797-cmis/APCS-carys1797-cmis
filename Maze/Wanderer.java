@@ -71,7 +71,12 @@ public class Wanderer extends Robot
                 left();
                 setData(4, 4);
             }else {
+                System.out.println("Turn Back");
                 setData(4, getData(3));
+                setData(5, getData(5) + 1);
+                if (getData(5) == 2){
+                    //Write Code Here!
+                }
             }
         }else if (getData(4) == 1){
             if (isClearRight() == true){
