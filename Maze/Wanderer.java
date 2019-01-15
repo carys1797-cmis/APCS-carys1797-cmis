@@ -34,36 +34,42 @@ public class Wanderer extends Robot
         // (3) == where robot is coming from
         // (4) == where robot is going
         
-        if (getData(0) == getX() && getData(1) == getY()){
+        boolean clearNotFromR = isClearRight() && getData(3) != 1;
+        boolean clearNotFromD = isClearDown() && getData(3) != 2;
+        boolean clearNotFromU = isClearUp() && getData(3) != 3;
+        boolean clearNotFromL = isClearLeft() && getData(3) != 4;
+        
+        if (getData(0) == getX() && getData(1) == getY() && getData(5) == 2){
             System.out.println("Fix this!");
+            setData(4, getData(2));
         }
         if (getData(4) == 0){
-            if (isClearRight() == true && getData(3) != 1){
-                if (isClearDown() == true || isClearUp() == true){
+            if (clearNotFromR){
+                if ((clearNotFromD || clearNotFromU || clearNotFromL) && getData(5) == 0){
                     setData(0, getX());
                     setData(1, getY());
                     setData(2, getData(3));
                 }
                 right();
                 setData(4, 1);
-            }else if (isClearDown() == true && getData(3) != 2){
-                if (isClearRight() == true || isClearLeft() == true){
+            }else if (clearNotFromD){
+                if ((clearNotFromR || clearNotFromU || clearNotFromL) && getData(5) == 0){
                     setData(0, getX());
                     setData(1, getY());
                     setData(2, getData(3));
                 }
                 down();
                 setData(4, 2);
-            }else if (isClearUp() == true && getData(3) != 3){
-                if (isClearRight() == true || isClearLeft() == true){
+            }else if (clearNotFromU){
+                if ((clearNotFromR || clearNotFromD || clearNotFromL) && getData(5) == 0){
                     setData(0, getX());
                     setData(1, getY());
                     setData(2, getData(3));
                 }
                 up();
                 setData(4, 3);
-            }else if (isClearLeft() == true && getData(3) != 4){
-                if (isClearDown() == true || isClearUp() == true){
+            }else if (clearNotFromL){
+                if ((clearNotFromR || clearNotFromD || clearNotFromU) && getData(5) == 0){
                     setData(0, getX());
                     setData(1, getY());
                     setData(2, getData(3));
@@ -71,10 +77,11 @@ public class Wanderer extends Robot
                 left();
                 setData(4, 4);
             }else {
-                System.out.println("Turn Back");
+                System.out.println("Turn Back   3:" + getData(3) + "    2:" + getData(2));
                 setData(4, getData(3));
                 setData(5, getData(5) + 1);
-                if (getData(5) == 2){
+                if (getData(5) > 1){
+                    System.out.println(getData(3));
                     //Write Code Here!
                 }
             }
