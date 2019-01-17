@@ -120,11 +120,11 @@ public class Wanderer extends Robot
         }
 
         //switch(Greenfoot.getRandomNumber(4)){
-        //  case 0: up(); break;
+        //case 0: up(); break;
         //case 1: down(); break;
-        // case 2: left(); break;
-        // case 3: right(); break;
+        //case 2: left(); break;
+        //case 3: right(); break;
         //}
     }
+    
 }
-

@@ -53,7 +53,7 @@ public class MyWorld extends World
             steps++;
         }else if (backTrack.size() == 0 && !robotAdded){
            robotAdded = true;
-            addObject(new Wanderer(bd), 1,1); //<<<<<< Change this to your robot.
+            addObject(new Wanderer2(bd), 1,1); //<<<<<< Change this to your robot.
             Greenfoot.ask("Ready?");
         }
        // System.out.println(steps);
