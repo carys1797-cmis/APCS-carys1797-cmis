@@ -5,5 +5,5 @@ comment1.target=void\ main(java.lang.String[])
 comment2.params=array
 comment2.target=void\ print(int[])
 comment3.params=array
-comment3.target=void\ mergeSort(int[])
+comment3.target=int[]\ mergeSort(int[])
 numComments=4
