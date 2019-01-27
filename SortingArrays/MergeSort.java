@@ -6,7 +6,6 @@ public class MergeSort
         for(int i = 0; i < numbers.length; i++){
             numbers[i] = (int)(Math.random() * 100);
         }
-        //int[] numbers = {56, 69, 46, 94, 79, 87, 33, 27, 67, 58, 94, 3, 81, 30, 5};
         print(numbers);
         mergeSort(numbers);
         print(numbers);
