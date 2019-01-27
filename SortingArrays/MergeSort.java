@@ -6,9 +6,10 @@ public class MergeSort
         for(int i = 0; i < numbers.length; i++){
             numbers[i] = (int)(Math.random() * 100);
         }
+        //int[] numbers = {56, 69, 46, 94, 79, 87, 33, 27, 67, 58, 94, 3, 81, 30, 5};
         print(numbers);
         mergeSort(numbers);
-        //print(numbers);
+        print(numbers);
     }
 
     public static void print(int[] array){
@@ -23,7 +24,6 @@ public class MergeSort
             return array;
         }else{
             int len = array.length;
-            int[] result = new int[len];
             int[] arrayFront = new int[len / 2];
             for(int i = 0; i < arrayFront.length; i++){
                 arrayFront[i] = array[i];
@@ -44,7 +44,7 @@ public class MergeSort
                 }else if(b == arrayBack.length){
                     array[i] = arrayFront[f];
                     f++;
-                }else if(arrayFront[f] < arrayBack[b]){
+                }else if(arrayFront[f] <= arrayBack[b]){
                     array[i] = arrayFront[f];
                     f++;
                 }else if(arrayBack[b] < arrayFront[f]){
@@ -53,11 +53,6 @@ public class MergeSort
                 }
             }
         }
-        print(array);
         return array;
     }
-    //split
-    //mergeSort
-    //merge:
-    //first of front, first of back
 }
