@@ -33,7 +33,87 @@ public class Wanderer2 extends Robot
         // (2) == which way robot was coming from when got to intersection
         // (3) == where robot is coming from
         // (4) == where robot is going
-        right();
+        boolean clearNotFromR = isClearRight() && getData(3) != 1;
+        boolean clearNotFromD = isClearDown() && getData(3) != 2;
+        boolean clearNotFromU = isClearUp() && getData(3) != 3;
+        boolean clearNotFromL = isClearLeft() && getData(3) != 4;
+        
+        if (getData(0) == getX() && getData(1) == getY() && getData(5) > 1){
+            System.out.println("Fix this!");
+            setData(4, getData(2));
+            setData(5, 0);
+        }
+        if (getData(4) == 0){
+            if (clearNotFromR){
+                setData(4, 1);
+            }else if (clearNotFromD){
+                setData(4, 2);
+            }else if (clearNotFromU){
+                setData(4, 3);
+            }else if (clearNotFromL){
+                setData(4, 4);
+            }else {
+                System.out.println("Turn Back   3:" + getData(3) + "    2:" + getData(2));
+                setData(4, getData(3));
+                setData(5, getData(5) + 1);
+                if (getData(5) > 1){
+                    System.out.println(getData(3));
+                    //Write Code Here!
+                }
+            }
+        }else if (getData(4) == 1){
+            if (isClearRight() == true){
+                if ((clearNotFromD || clearNotFromU || clearNotFromL)){ //&& getData(5) == 0){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                right();
+            }else {
+                setData(3, 4);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
+            }
+        }else if (getData(4) == 2){
+            if (isClearDown() == true){
+                if ((clearNotFromR || clearNotFromU || clearNotFromL)){ //&& getData(5) == 0){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                down();
+            }else {
+                setData(3, 3);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
+            }
+        }else if (getData(4) == 3){
+            if (isClearUp() == true){
+                if ((clearNotFromR || clearNotFromD || clearNotFromL)){ //&& getData(5) == 0){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                up();
+            }else {
+                setData(3, 2);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
+            }
+        }else if (getData(4) == 4){
+            if (isClearLeft() == true){
+                if ((clearNotFromR || clearNotFromD || clearNotFromU)){ //&& getData(5) == 0){
+                    setData(0, getX());
+                    setData(1, getY());
+                    setData(2, getData(3));
+                }
+                left();
+            }else {
+                setData(3, 1);
+                setData(4, 0);
+                System.out.println(Arrays.toString(getData()));
+            }
+        }
         
     }
     

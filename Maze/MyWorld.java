@@ -101,6 +101,6 @@ public class MyWorld extends World
     
     public void win(Robot b){
         showText("You win!", 10,10);
-        
+        Greenfoot.stop();
     }
 }

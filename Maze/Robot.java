@@ -124,7 +124,7 @@ public abstract class Robot extends Actor
         if(isTouching(Goal.class)){
             MyWorld w = (MyWorld) getWorld();
             w.win(this);
-
+            
         }
     }    
 
