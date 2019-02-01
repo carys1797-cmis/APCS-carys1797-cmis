@@ -10,16 +10,15 @@ public class MyTester
         System.out.println("UNSORTED");
         Util.print(array);
 
-        for(double i = 0; i < 10; i++){
+        //for(double i = 0; i < 10; i++){
             start = System.nanoTime();
             BubbleSort.sort(array);
             btime = System.nanoTime() - start;
-            totaltime += btime;
+            //totaltime += btime;
             array = tmp;
-            System.out.println(btime);
-        }
+            //System.out.println(btime);
+        //}
 
-        //System.out.println(totaltime / 100);
         
         start = System.nanoTime();
         SelectionSort.sort(array);
@@ -38,15 +37,12 @@ public class MyTester
         System.out.println("SORTED");
         Util.print(array);
 
-        //for(int i = 0; i < 10; i++){
-        //  int bavg = btime + 
-        //}
 
         System.out.format(
-            //"BubbleSort: %d %d\n"+
+            "BubbleSort: %d %d\n"+
             "SelectionSort: %d %d\n"+
             "InsertionSort: %d %d\n"+
             "MergeSort: %d %d\n", 
-            stime, SelectionSort.steps,  itime, InsertionSort.steps, mtime, MergeSort.steps);
+            btime, BubbleSort.steps, stime, SelectionSort.steps,  itime, InsertionSort.steps, mtime, MergeSort.steps);
     }
 }
