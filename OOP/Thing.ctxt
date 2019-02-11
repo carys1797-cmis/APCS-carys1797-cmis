@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Thing
+comment1.params=
+comment1.target=Thing()
+comment2.params=newValue
+comment2.target=void\ setfield1(int)
+comment3.params=
+comment3.target=int\ getfield1()
+comment4.params=newValue
+comment4.target=void\ setfield2(double)
+comment5.params=
+comment5.target=double\ getfield2()
+comment6.params=newValue
+comment6.target=void\ setfield3(boolean)
+comment7.params=
+comment7.target=boolean\ getfield3()
+comment8.params=newValue
+comment8.target=void\ setfield4(java.lang.String)
+comment9.params=
+comment9.target=java.lang.String\ getfield4()
+numComments=10
