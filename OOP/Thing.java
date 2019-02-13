@@ -12,6 +12,16 @@ public class Thing
         this.field3 = true;
         this.field4 = "ten";
     }
+    public Thing(int newValue){
+        this();
+        field1 = newValue;
+        field3 = false;
+    }
+    public Thing(double newValueDob, String newValueStr){
+        this(1);
+        field2 = newValueDob;
+        field4 = newValueStr;
+    }
 
     public void setfield1(int newValue){
          this.field1 = newValue;

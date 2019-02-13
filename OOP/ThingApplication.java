@@ -12,13 +12,15 @@ public class ThingApplication
         thing2.setfield3(true);
         thing1.setfield4("one");
         thing2.setfield4("two");
+        System.out.println("Thing1: ");
         System.out.println(thing1.getfield1());
-        System.out.println(thing2.getfield1());
         System.out.println(thing1.getfield2());
-        System.out.println(thing2.getfield2());
         System.out.println(thing1.getfield3());
-        System.out.println(thing2.getfield3());
         System.out.println(thing1.getfield4());
+        System.out.println("Thing2: ");
+        System.out.println(thing2.getfield1());
+        System.out.println(thing2.getfield2());
+        System.out.println(thing2.getfield3());
         System.out.println(thing2.getfield4());
     }
 }
