@@ -29,9 +29,9 @@ public class RecursionSortingQuiz
      * 0! => 1
      */
     public static int factorial(int n){
-        if (n == 0  || n == 1){
+        if (n == 0  || n == 1){ //2pts
             return 1;
-        }else {
+        }else { //3pts
             int product = n * factorial(n - 1);
             return product;
         }
@@ -44,13 +44,13 @@ public class RecursionSortingQuiz
     public static int[] kiefferSort(int[] array){
         int move;
         int randomIndex;
-        for(int i = 0; i < array.length - 1; i++){
-            if(array[i] > array[i + 1]){
+        for(int i = 0; i < array.length - 1; i++){ //2pts
+            if(array[i] > array[i + 1]){ //1pt
                 move = array[0];
                 randomIndex = (int) (Math.random() * (array.length - 1)) + 1;
                 array[0] = array[randomIndex];
-                array[randomIndex] = move;
-                kiefferSort(array);
+                array[randomIndex] = move; //2pts
+                kiefferSort(array); //2pts
             }
         }
         return array;
