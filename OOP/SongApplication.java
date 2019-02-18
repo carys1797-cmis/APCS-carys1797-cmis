@@ -1,6 +1,10 @@
 
 public class SongApplication
 {
-   Song song1 = new Song();
-   Song song2 = new Song(5.19, "All I Want", "Kodaline", true, 2013);
+    public static void main(String args[]){
+        Song song1 = new Song();
+        System.out.println(song1);
+        Song song2 = new Song("All I Want", "Kodaline", 5.19, true, 2013);
+        System.out.println(song2);
+    }
 }

@@ -1,29 +1,29 @@
 
 public class Song
 {
-    private double length;
     private String name;
     private String artist;
+    private double length;
     private boolean clean;
     private int yearReleased;
     
     public Song() {
-        this.length = 3.54;
         this.name = "Let It Be";
         this.artist = "The Beatles";
+        this.length = 3.54;
         this.clean = true;
         this.yearReleased = 1970;
     }
     
-    public Song(double len, String nm, String att, boolean cln, int yr){
-        this.length = len;
+    public Song(String nm, String att, double len, boolean cln, int yr){
         this.name = nm;
         this.artist = att;
+        this.length = len;
         this.clean = cln;
         this.yearReleased = yr;
     }
-    public String toString(double len){
-        String length = (String) len;
-        return length;
+    
+    public String toString(){
+        return "Name: " + name + "\nArtist: " + artist + "\nLength: " + length + "\nClean: " + clean + "\nYear Released: " + yearReleased + "\n";
     }
 }
