@@ -40,16 +40,28 @@ public class BlackJack
         }
 
     }
-
+    
+    public static boolean win(int d, int p){
+        if (p > d){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
     public static void main(String args[]){
         Card[] dealerhand = hand();
         int dealerScore = score(dealerhand[0].getrank()) + score(dealerhand[1].getrank());
+        //boolean dw = win(
         Card[] p1hand = hand();
         int p1score = score(p1hand[0].getrank()) + score(p1hand[1].getrank());
+        boolean p1w = win(dealerScore, p1score);
         Card[] p2hand = hand();
         int p2score = score(p2hand[0].getrank()) + score(p2hand[1].getrank());
+        
         Card[] p3hand = hand();
         int p3score = score(p3hand[0].getrank()) + score(p3hand[1].getrank());
+        
         Card[] p4hand = hand();
         int p4score = score(p4hand[0].getrank()) + score(p4hand[1].getrank());
         Card[] p5hand = hand();
