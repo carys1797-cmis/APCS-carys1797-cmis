@@ -1,3 +1,9 @@
 #BlueJ class context
 comment0.target=Language
-numComments=1
+comment1.params=
+comment1.target=Language()
+comment2.params=name\ num\ tonal
+comment2.target=Language(java.lang.String,\ int,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

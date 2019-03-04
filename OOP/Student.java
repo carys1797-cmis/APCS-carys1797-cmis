@@ -19,7 +19,7 @@ public class Student
         this.age = age;
         this.girl = girl;
     }
-    
+
     public String toString(){
         return "Firstname: " + firstname + "\nLast Name: " + lastname + "\nAge: " + age + "\nGirl: " + girl + "\n";
     }
