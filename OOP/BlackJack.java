@@ -41,31 +41,55 @@ public class BlackJack
 
     }
     
-    public static boolean win(int d, int p){
+    public static String win(String name, int d, int p){
         if (p > d){
-            return true;
+            return name + " won";
         }else {
-            return false;
+            return "Dealer won";
+        }
+    }
+    
+    public static void print(Card[] array){
+        for(int i = 0; i < array.length; i++){
+            System.out.print(array[i] + "  ");
         }
     }
     
     public static void main(String args[]){
         Card[] dealerhand = hand();
-        int dealerScore = score(dealerhand[0].getrank()) + score(dealerhand[1].getrank());
-        //boolean dw = win(
+        int dealerscore = score(dealerhand[0].getrank()) + score(dealerhand[1].getrank());
         Card[] p1hand = hand();
         int p1score = score(p1hand[0].getrank()) + score(p1hand[1].getrank());
-        boolean p1w = win(dealerScore, p1score);
+        String p1w = win("Player 1", dealerscore, p1score);
         Card[] p2hand = hand();
         int p2score = score(p2hand[0].getrank()) + score(p2hand[1].getrank());
-        
+        String p2w = win("Player 2", dealerscore, p2score);
         Card[] p3hand = hand();
         int p3score = score(p3hand[0].getrank()) + score(p3hand[1].getrank());
-        
+        String p3w = win("Player 3", dealerscore, p3score);
         Card[] p4hand = hand();
         int p4score = score(p4hand[0].getrank()) + score(p4hand[1].getrank());
+        String p4w = win("Player 4", dealerscore, p4score);
         Card[] p5hand = hand();
         int p5score = score(p5hand[0].getrank()) + score(p5hand[1].getrank());
-        
+        String p5w = win("Player 5", dealerscore, p5score);
+        System.out.print("Dealer\nHand: ");
+        print(dealerhand);
+        System.out.println("\nScore: " + dealerscore + "\n");
+        System.out.print("Player 1\nHand: ");
+        print(p1hand);
+        System.out.println("\nScore: " + p1score + "\n" + p1w + "\n");
+        System.out.print("Player 2\nHand: ");
+        print(p2hand);
+        System.out.println("\nScore: " + p2score + "\n" + p2w + "\n");
+        System.out.print("Player 3\nHand: ");
+        print(p3hand);
+        System.out.println("\nScore: " + p3score + "\n" + p3w + "\n");
+        System.out.print("Player 4\nHand: ");
+        print(p4hand);
+        System.out.println("\nScore: " + p4score + "\n" + p4w + "\n");
+        System.out.print("Player 5\nHand: ");
+        print(p5hand);
+        System.out.println("\nScore: " + p5score + "\n" + p5w + "\n");
     }
 }

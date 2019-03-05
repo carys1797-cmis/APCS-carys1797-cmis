@@ -4,7 +4,7 @@ public class Card
     private String rank;
     private String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     private String suit;
-    private String[] suits = {"Clubs", "Spades", "Diamonds", "Hearts"};
+    private String[] suits = {"♣", "♠", "♦", "♥"};
     
     public Card(){
         this.rank = "";
@@ -21,6 +21,6 @@ public class Card
     }
     
     public String toString(){
-        return rank + " of " + suit + "\n";
+        return rank + suit;
     }
 }
