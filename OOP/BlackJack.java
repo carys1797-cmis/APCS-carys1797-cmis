@@ -1,14 +1,28 @@
 
 public class BlackJack
 {
-    public static Card[] hand(){
-        Card[] hand = new Card[2];
+    public static Card[] deck = deck();
+    
+    public static Card[] deck(){
+        Card[] deck = new Card[52];
+        int r = 0, s = 0;
+        for(int i = 0; i < 52; i++){
+            Card c = new Card(r, s);
+            deck[i] = c;
+            r++;
+            if(r == 13){
+                s++;
+                r = 0;
+            }
+        }
+        return deck;
+    }
+    
+    public static Hand hand(){
+        Hand hand = new Hand();
 
         for(int i = 0; i < 2; i++){
-            int r = (int) (Math.random() * 13);
-            int s = (int) (Math.random() * 4);
-            Card randomCard = new Card(r, s);
-            hand[i] = randomCard;
+            hand.addCard(deck[(int)(Math.random() * 52)]);
         }
         return hand;
     }
@@ -56,7 +70,7 @@ public class BlackJack
     }
     
     public static void main(String args[]){
-        Card[] dealerhand = hand();
+        Hand dealerhand = new Hand();
         int dealerscore = score(dealerhand[0].getrank()) + score(dealerhand[1].getrank());
         Card[] p1hand = hand();
         int p1score = score(p1hand[0].getrank()) + score(p1hand[1].getrank());
@@ -73,9 +87,7 @@ public class BlackJack
         Card[] p5hand = hand();
         int p5score = score(p5hand[0].getrank()) + score(p5hand[1].getrank());
         String p5w = win("Player 5", dealerscore, p5score);
-        System.out.print("Dealer\nHand: ");
-        print(dealerhand);
-        System.out.println("\nScore: " + dealerscore + "\n");
+        System.out.print("Dealer\nHand: " + dealerhand + "\nScore: " + dealerscore + "\n");
         System.out.print("Player 1\nHand: ");
         print(p1hand);
         System.out.println("\nScore: " + p1score + "\n" + p1w + "\n");
