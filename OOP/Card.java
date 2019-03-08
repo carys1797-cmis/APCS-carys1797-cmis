@@ -1,26 +1,28 @@
 
 public class Card
 {
-    private String rank;
-    private String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    private String suit;
-    private String[] suits = {"♣", "♠", "♦", "♥"};
+    private int rank; 
+    private int suit;
+    private boolean faceUp;
+    
     
     public Card(){
-        this.rank = "";
-        this.suit = "";
-    }
-
-    public Card(int r, int s){
-        this.rank = ranks[r];
-        this.suit = suits[s];
+        rank = (int)(Math.random() * 13);
+        suit = (int)(Math.random() * 4);
     }
     
-    public String getrank(){
+    public Card(int r, int s){
+        rank = r;
+        suit = s;
+    }
+    
+    public int getrank(){
         return rank;
     }
     
     public String toString(){
-        return rank + suit;
+        String[] suits = {"♣", "♠", "♦", "♥"};
+        String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        return String.format("%s%s", ranks[rank], suits[suit]);
     }
 }
