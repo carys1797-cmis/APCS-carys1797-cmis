@@ -5,16 +5,15 @@ public class Deck
 
     public Deck(int nDecks){
         cards = new ArrayList<Card>();
-        for(int i = 0; i < nDecks; i++){
+        while(nDecks > 0){
             for(int rank = 0; rank < 13; rank++){
                 for(int suit = 0; suit < 4; suit++){
                     cards.add(new Card(rank, suit));
                 }
             }
-
+            nDecks--;
         }
     }
-
 
     public int nCards(){
         return cards.size();
@@ -26,7 +25,20 @@ public class Deck
     }
 
     public void shuffle(){
-        //cards.set(object, index);
-        //cards.get(index);
+        for(int i = 0; i < 100; i++){
+            int index = (int) (Math.random() * cards.size());
+            Card moving = cards.get(index);
+            cards.remove(index);
+            cards.add(moving);
+        }
     }
+    
+    public void main(String args[]){
+        System.out.println(draw());
+    }
+
+    //public void shuffle(){
+    //cards.set(card, index);
+    //cards.get(index);
+    //}
 }

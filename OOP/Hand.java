@@ -7,18 +7,33 @@ public class Hand
         cards = new ArrayList<Card>();
     }
 
+    public int nCards(){
+        return cards.size();
+    }
+
     public void addCard(Card card){
         cards.add(card);
     }
 
-    public int getValue(Card card){
+    public void playCard(Card card){
+        cards.remove(card);
+    }
+
+    public int getScore(){
         int score = 0;
-        if(card.getrank() == 0){
-            return score += 11;
-        }else if(card.getrank() < 10){
-            score += card.getrank() + 1;
-        }else{
-            return score += 10;
+        for(Card card: cards){
+            int rank = card.getrank();
+            if(rank == 0){
+                if (score + 11 > 21){
+                    score += 1;
+                }else{
+                    score += 11;
+                }
+            }else if(rank < 10){
+                score += card.getrank() + 1;
+            }else{
+                score += 10;
+            }
         }
         return score;
     }
@@ -30,4 +45,5 @@ public class Hand
         }
         return out;
     }
+    
 }

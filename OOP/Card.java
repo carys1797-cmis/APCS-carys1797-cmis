@@ -21,8 +21,8 @@ public class Card
     }
     
     public String toString(){
-        String[] suits = {"♣", "♠", "♦", "♥"};
         String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        String[] suits = {"♣", "♠", "♦", "♥"};
         return String.format("%s%s", ranks[rank], suits[suit]);
     }
 }

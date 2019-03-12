@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=BlackJack
 comment1.params=
-comment1.target=Card[]\ hand()
-comment2.params=rank
-comment2.target=int\ score(java.lang.String)
-comment3.params=name\ d\ p
-comment3.target=java.lang.String\ win(java.lang.String,\ int,\ int)
-comment4.params=array
-comment4.target=void\ print(Card[])
+comment1.target=Hand\ hand()
+comment2.params=nPlayers
+comment2.target=java.util.ArrayList\ playerHands(int)
+comment3.params=player\ dScore\ pScore
+comment3.target=java.lang.String\ win(int,\ int,\ int)
+comment4.params=deck
+comment4.target=void\ print(Deck)
 comment5.params=args
 comment5.target=void\ main(java.lang.String[])
 numComments=6
