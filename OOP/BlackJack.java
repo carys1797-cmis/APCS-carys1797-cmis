@@ -10,8 +10,15 @@ public class BlackJack
             hand.addCard(deck.draw());
         }
 
-        while(hand.getScore() < 18){
-            hand.addCard(deck.draw());
+        while(hand.getScore() < 21){
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Press 1 to Draw  or  Press 0 to Keep");
+            int act = reader.nextInt();
+            if(act == 1){
+                hand.addCard(deck.draw());
+            }else{
+                return hand;
+            }
         }
         return hand;
     }
