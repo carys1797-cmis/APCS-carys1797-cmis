@@ -1,17 +1,25 @@
 import java.util.*;
 public class Game
 {
-    private Hand dealer;
-    private ArrayList<Hand> players;
     private Deck deck;
-    
+    private List<Player> players;
+
     public Game(int nPlayers){
         this.deck = new Deck(5);
-        this.dealer = hand();
-        for(int i = 0; i <= nPlayers; i++){
-            Hand newHand = hand();
-            this.players.add(newHand);
+        this.players = new ArrayList<Player>();
+    }
+
+    public void deal(int n){
+        for (int i = 0; i < n; i++){
+            for(int p = 0; p < players.size(); p++){
+                players.get(p).getHand().addCard(deck.draw());
+            }
         }
+    }
+
+    public void setup(){
+        deck.shuffle();
+        deal(2);
     }
 
     public Hand hand(){
@@ -21,7 +29,7 @@ public class Game
         }
         return hand;
     }
-    
+
     public void turn(int player){
         while(players.get(player).getScore() < 21){
             Scanner reader = new Scanner(System.in);
@@ -34,7 +42,7 @@ public class Game
             }
         }
     }
-    
+
     public String win(int player){
         if (players.get(player).getScore() > dealer.getScore()){
             return "Player " + player + " won";
@@ -47,3 +55,11 @@ public class Game
         }
     }
 }
+
+//setup, add player, play round, summary,
+
+
+//win --> player gets Blackjack (21 with 2 cards);
+//lose --> bust (cards add up to over 21);
+//win --> player <= 21 and player > dealer;
+//lose --> dealer has blackjack and player doesn't
