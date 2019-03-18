@@ -1,11 +1,17 @@
 #BlueJ class context
 comment0.target=Game
-comment1.params=nPlayers
-comment1.target=Game(int)
-comment2.params=
-comment2.target=Hand\ hand()
-comment3.params=player
-comment3.target=void\ turn(int)
-comment4.params=player
-comment4.target=java.lang.String\ win(int)
-numComments=5
+comment1.params=
+comment1.target=Game()
+comment2.params=n
+comment2.target=void\ addPlayers(int)
+comment3.params=n
+comment3.target=void\ deal(int)
+comment4.params=
+comment4.target=void\ setup()
+comment5.params=
+comment5.target=void\ playRound()
+comment6.params=
+comment6.target=void\ results()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8
