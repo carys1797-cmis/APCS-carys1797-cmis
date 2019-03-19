@@ -7,6 +7,7 @@ public class BlackJack
         blackjack.addPlayers(1);
         blackjack.setup();
         blackjack.playRound();
+        blackjack.win();
         System.out.println(blackjack);
     }
 }

@@ -33,6 +33,13 @@ public class Game
     public void setup(){
         deck.shuffle();
         deal(2);
+        for (Player player : players){
+            if(player.getName() == "Dealer"){
+                System.out.println(player.getName() + "\n?? " + player.getHand().getCard(1));
+            }else{
+                System.out.println(player.getName() + "\n" + player.getHand());
+            }
+        }
     }
 
     public void playRound(){
@@ -53,22 +60,33 @@ public class Game
                 }while(act != 0);
             }
         }
-
     }
 
-    public void results(){
+    public void win(){
         for(Player player : players){
+            String name = player.getName();
             if (player.getHand().nCards() == 2 && player.getHand().getScore() == 21){
-                player.setResult(true);
-            }else if (player.getHand().getScore() > 21){
-                player.setResult(false);
+                player.setWin(true);
+                player.setResults(name + " got Blackjack. " + name + " won");
+            }else if(player.getHand().getScore() > 21){
+                if(dealer.getHand().getScore() > 21){
+                    player.setWin(false);
+                    player.setResults("Both " + name + " and Dealer bust. Nobody won");
+                }else{
+                    player.setWin(false);
+                    player.setResults(name + " bust. Dealer won");
+                }
             }else if(player.getHand().getScore() > dealer.getHand().getScore()){
-                player.setResult(true);
+                player.setWin(true);
+                player.setResults(name + " won");
             }else if(dealer.getHand().getScore() > 21){
-                player.setResult(true);
+                player.setWin(true);
+                player.setResults("Dealer bust. " + name + " won");
             }else{
-                player.setResult(false);
+                player.setWin(false);
+                player.setResults("Dealer won");
             }
+            player.bet();
         }
     }
 

@@ -10,7 +10,11 @@ public class Hand
     public int nCards(){
         return cards.size();
     }
-
+    
+    public Card getCard(int n){
+        return cards.get(n);
+    }
+    
     public void addCard(Card card){
         cards.add(card);
     }
