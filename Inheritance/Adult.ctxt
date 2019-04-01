@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Adult
+comment1.params=
+comment1.target=Adult()
+comment2.params=location\ parent
+comment2.target=Adult(Place,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ getJob()
+comment4.params=
+comment4.target=boolean\ getParent()
+comment5.params=j
+comment5.target=void\ setJob(java.lang.String)
+comment6.params=p
+comment6.target=void\ setParent(boolean)
+numComments=7
