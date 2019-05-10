@@ -1,0 +1,15 @@
+#Greenfoot properties
+#Fri May 10 11:39:34 ICT 2019
+class.Incorrect.superclass=greenfoot.World
+class.Countries.superclass=greenfoot.Actor
+class.MyWorld.image=World Map.png
+mainWindow.width=850
+class.Correct.superclass=greenfoot.World
+class.MyWorld.superclass=greenfoot.World
+project.charset=UTF-8
+version=3.0.0
+world.lastInstantiated=MyWorld
+class.Correct.image=World Map.png
+mainWindow.y=40
+mainWindow.x=40
+mainWindow.height=600
