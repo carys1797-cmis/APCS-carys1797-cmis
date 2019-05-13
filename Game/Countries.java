@@ -1,19 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Countries here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Countries extends Actor
+public class Countries extends World
 {
-    /**
-     * Act - do whatever the Countries wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+
+    public Countries()
+    {    
+        super(1406, 698, 1);
+        GreenfootImage background = new GreenfootImage("World Map.png");
+        background.scale(1406, 698);
+        setBackground(background);
+        Name name = new Name();
+        addObject(name, 0, getHeight());
+    }
 }
