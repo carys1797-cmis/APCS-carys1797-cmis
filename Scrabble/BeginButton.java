@@ -14,7 +14,7 @@ public class BeginButton extends Actor
         if(Greenfoot.mouseClicked(this)){
             String p1name = JOptionPane.showInputDialog("Player 1 name: ");
             String p2name = JOptionPane.showInputDialog("Player 2 name: ");
-            Greenfoot.setWorld(new Player1(p1name));
+            Greenfoot.setWorld(new Board(p1name, p2name));
         }
     }    
 }

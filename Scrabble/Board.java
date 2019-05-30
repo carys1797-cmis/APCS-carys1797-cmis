@@ -1,8 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Board extends World
 {
-
-    public Board()//String p1, String p2//)
+    public Board(String p1, String p2)
     {
         super(634, 730, 1);
         GreenfootImage grid = new GreenfootImage("Board.png");
@@ -14,7 +13,7 @@ public class Board extends World
         while(y < 651){
             int x = 25;
             while(x < 634){
-                Box box = new Box();
+                Box box = new Box(39, 40);
                 addObject(box, x, y);
                 if(x == 109 || x == 192 || x == 359 || x == 526){
                     x += 41;
@@ -30,6 +29,5 @@ public class Board extends World
         }
         Game scrabble = new Game();
         addObject(scrabble, 1, 1);
-        //scrabble.act(p1, p2);
     }
 }

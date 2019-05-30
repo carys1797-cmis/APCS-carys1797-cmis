@@ -14,6 +14,10 @@ public class Player extends Actor
         return name;
     }
     
+    public void setName(String n){
+        this.name = n;
+    }
+    
     public Rack getRack(){
         return rack;
     }
