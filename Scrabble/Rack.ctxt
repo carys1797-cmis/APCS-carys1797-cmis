@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Rack
+comment1.params=
+comment1.target=Rack()
+comment2.params=let
+comment2.target=void\ addLet(java.lang.String)
+comment3.params=let
+comment3.target=void\ playLet(java.lang.String)
+comment4.params=bL
+comment4.target=void\ swapLets(Letters)
+comment5.params=bL
+comment5.target=void\ fillRack(Letters)
+comment6.params=
+comment6.target=void\ act()
+numComments=7
