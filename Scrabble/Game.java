@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
+import javax.swing.JOptionPane;
 public class Game extends Actor
 {
     private Letters bagofLets;
@@ -19,13 +20,32 @@ public class Game extends Actor
     
     public void setup(){
         for(Player p : players){
-            player.getRack().fillRack();
+            p.getRack().fillRack(bagofLets);
         }
     }
     
     public void act(String p1, String p2) 
     {
+        GreenfootImage box = new GreenfootImage(634,100);
+        box.setColor(Color.WHITE);
+        box.fill();
+        setImage(box);
         addPlayers(p1, p2);
         setup();
+        //while(bagofLets.number() > 0){
+            for(Player p : players){
+               
+                String word = JOptionPane.showInputDialog(p.getName() + " Word: ");
+                if(word == "swap"){
+                    p.getRack().swapLets(bagofLets);
+                }else {
+                    if(!p.checkWord(word)){
+                    }else{
+                        p.positionWord();
+                        p.playWord(word);
+                    }
+                }
+            }
+        //}
     }    
 }

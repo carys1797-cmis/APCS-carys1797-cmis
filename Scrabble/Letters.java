@@ -24,12 +24,8 @@ public class Letters extends Actor
     }
     
     public String pick(){
-        int r = (int)(Math.random() * 100);
+        int r = (int)(Math.random() * letters.size());
         return letters.remove(r);
-    }
-    
-    public int findLet(char let){
-        return letters.indexOf(let);
     }
     
     public int getPoints(String let){

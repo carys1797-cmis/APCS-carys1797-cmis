@@ -18,6 +18,17 @@ public class Player extends Actor
         return rack;
     }
     
+    public boolean checkWord(String word){
+        Rack temp = rack;
+        for(int i = 0; i < word.length(); i++){
+            if(temp.findLet(word.charAt(i)) == -1){
+                return false;
+            }
+            temp.playLet((String.valueOf(word.charAt(i))));
+        }
+        return true;
+    }
+    
     public String playWord(String word){
         for(int i = 0; i < word.length(); i++){
             //int index = rack.findLet(word.charAt(i));

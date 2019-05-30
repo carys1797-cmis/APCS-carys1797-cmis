@@ -3,9 +3,11 @@ import java.util.*;
 public class Rack extends Actor
 {
     private List<String> rack;
-    
+    private GreenfootImage r;
     public Rack(){
         this.rack = new ArrayList<String>(7);
+        r = new GreenfootImage("Rack.png");
+        setImage(r);
     }
     
     public void addLet(String let){
@@ -14,6 +16,10 @@ public class Rack extends Actor
     
     public void playLet(String let){
         rack.remove(let);
+    }
+    
+    public int findLet(char let){
+        return rack.indexOf(let);
     }
     
     public void swapLets(Letters bL){
