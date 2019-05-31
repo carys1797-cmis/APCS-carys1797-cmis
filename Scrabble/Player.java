@@ -35,10 +35,10 @@ public class Player extends Actor
     
     public String playWord(String word){
         for(int i = 0; i < word.length(); i++){
-            //int index = rack.findLet(word.charAt(i));
-            //if(index != -1){
-                //rack.playLet(index);
-            //}
+            int index;
+            if(rack.findLet(word.charAt(i)) != -1){
+                rack.playLet(String.valueOf(word.charAt(i)));
+            }
         }
         return word;
     }

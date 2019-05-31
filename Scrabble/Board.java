@@ -29,5 +29,6 @@ public class Board extends World
         }
         Game scrabble = new Game();
         addObject(scrabble, 1, 1);
+        scrabble.setup(p1, p2);
     }
 }

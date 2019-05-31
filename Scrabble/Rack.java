@@ -6,7 +6,7 @@ public class Rack extends Actor
     private GreenfootImage r;
     public Rack(){
         this.rack = new ArrayList<String>(7);
-        r = new GreenfootImage("Rack.png");
+        r = new GreenfootImage("Rack.jpg");
         setImage(r);
     }
     
