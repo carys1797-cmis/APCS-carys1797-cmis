@@ -2,12 +2,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class StartPage extends World
 {
+    private Button beginb;
     public StartPage()
     {    
         super(1200, 700, 1);
         GreenfootImage bg = new GreenfootImage("Start Page.png");
         setBackground(bg);
-        BeginButton beginb = new BeginButton();
+        beginb = new Button();
         addObject(beginb, getWidth()/2, getHeight()*5/6);
     }
 }

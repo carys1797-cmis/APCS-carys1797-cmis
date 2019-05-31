@@ -5,6 +5,12 @@ public class Player extends Actor
     private String name;
     private Rack rack;
     private int handicap;
+    
+    public Player(){
+        this.name = "";
+        this.rack = new Rack();
+    }
+    
     public Player(String n){
         this.name = n;
         this.rack = new Rack();

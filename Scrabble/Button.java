@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import javax.swing.JOptionPane;
-public class BeginButton extends Actor
+public class Button extends Actor
 {
     private GreenfootImage button;
     
-    public BeginButton(){
+    public Button(){
         button = new GreenfootImage("Begin Button.png");
         setImage(button);
     }

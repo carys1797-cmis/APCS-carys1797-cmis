@@ -35,6 +35,14 @@ public class Rack extends Actor
         }
     }
     
+    public void print(String name){
+        System.out.print(name + " {");
+        for(String s : rack){
+            System.out.print(s + ", ");
+        }
+        System.out.print("}\n");
+    }
+    
     public void act() 
     {
         
